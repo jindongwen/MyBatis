@@ -3,17 +3,32 @@
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
+    <!-- 读取属性文件 -->
+    <properties resource="jdbc.properties"> </properties>
+    
+    <settings>
+        <setting name="logImpl" value="LOG4J"/>
+    </settings>
+
+    <!--给实体类配置别名-->
+    <typeAliases>
+        <!--typeAlias type="com.ylb.entity.Flower" alias="Flower"></typeAlias> -->
+
+        <!-- 给包起别名  使用实体类时，可以省略前缀包名-->
+        <package name="com.ylb.entity"/>
+
+    </typeAliases>
     <environments default="mysql">
         <!--   可以配置多种数据库     -->
         <environment id="mysql">
             <!--     MyBatis的事务管理和 JDBC中的事务保持一致   -->
-            <transactionManager type="JDBC"></transactionManager>
+            <transactionManager type="JDBC"> </transactionManager>
             <!--使用连接池连接数据库-->
             <dataSource type="POOLED">
-                <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
-                <property name="url" value="jdbc:mysql://127.0.0.1:3306/mydb?useSSL=false&amp;useUnicode=true&amp;characterEncoding=utf8&amp;serverTimezone=Asia/Shanghai"/>
-                <property name="username" value="root"/>
-                <property name="password" value="123"/>
+                <property name="driver" value="${m_driver}"/>
+                <property name="url" value="${m_url}"/>
+                <property name="username" value="${m_username}"/>
+                <property name="password" value="${m_password}"/>
             </dataSource>
         </environment>
         <!--   可以配置多种数据库     -->
@@ -21,6 +36,6 @@
     <!--  进行 mapper文件的扫描   -->
     <mappers>
         <!--  mapper文件的相对路径 包括文件的后缀名  -->
-        <mapper resource="com/ylb/mapper/FlowerMapper.xml"></mapper>
+        <mapper resource="com/ylb/mapper/FlowerMapper.xml"/>
     </mappers>
 </configuration>

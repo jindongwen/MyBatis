@@ -33,7 +33,6 @@ public class test {
         //调用方法  mapper文件中的命名空间中的id
         List<Flower> objects = sqlSession.selectList("a.b.selectAll");
         System.out.println(objects);
-
         //关闭资源
         sqlSession.close();
     }

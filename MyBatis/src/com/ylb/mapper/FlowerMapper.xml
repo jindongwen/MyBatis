@@ -9,7 +9,7 @@
         返回值是集合： 集合的泛型
         返回值是对象： 对象的全路径
     -->
-    <select id="selectAll" resultType="com.ylb.entity.Flower">
+    <select id="selectAll" resultType="Flower">
         SELECT * from flower
     </select>
 </mapper>
