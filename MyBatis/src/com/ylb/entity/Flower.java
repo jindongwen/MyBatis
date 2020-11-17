@@ -1,12 +1,18 @@
-package ylb.entity;
+package com.ylb.entity;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class Flower implements Serializable {
     private Integer id;
     private String name;
     private Integer price;
     private String production;
+
+  //  public List<Flower> selectAll(){
+  //      System.out.println("111111111111111");
+  //     return  null;
+  //  }
 
     public Flower() {
     }
